@@ -1,3 +1,5 @@
+# see m4/libcerror.m4
+%define		libcerror_ver	20120425
 Summary:	Library to support cross-platform C threads functions
 Summary(pl.UTF-8):	Biblioteka wspierająca wieloplatformowe funkcje obsługi wątków w C
 Name:		libcthreads
@@ -12,10 +14,10 @@ URL:		https://github.com/libyal/libcthreads/
 BuildRequires:	autoconf >= 2.59
 BuildRequires:	automake >= 1.6
 BuildRequires:	gettext-tools >= 0.18.1
-BuildRequires:	libcerror-devel >= 20120425
+BuildRequires:	libcerror-devel >= %{libcerror_ver}
 BuildRequires:	libtool
 BuildRequires:	pkgconfig
-Requires:	libcerror >= 20120425
+Requires:	libcerror >= %{libcerror_ver}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -30,7 +32,7 @@ Summary:	Header files for libcthreads library
 Summary(pl.UTF-8):	Pliki nagłówkowe biblioteki libcthreads
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
-Requires:	libcerror-devel >= 20120425
+Requires:	libcerror-devel >= %{libcerror_ver}
 
 %description devel
 Header files for libcthreads library.
