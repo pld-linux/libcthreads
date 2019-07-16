@@ -1,24 +1,21 @@
 Summary:	Library to support cross-platform C threads functions
 Summary(pl.UTF-8):	Biblioteka wspierająca wieloplatformowe funkcje obsługi wątków w C
 Name:		libcthreads
-Version:	20150101
-Release:	2
+Version:	20180724
+Release:	1
 License:	LGPL v3+
 Group:		Libraries
-Source0:	https://github.com/libyal/libcthreads/archive/%{version}/%{name}-%{version}.tar.gz
-# Source0-md5:	c0cc6abe573e796c1f4ebe0db7e23b73
-Patch0:		%{name}-system-libs.patch
+#Source0Download: https://github.com/libyal/libcthreads/releases
+Source0:	https://github.com/libyal/libcthreads/releases/download/%{version}/%{name}-alpha-%{version}.tar.gz
+# Source0-md5:	db38f7521fbfd20502de5befd23166c7
 URL:		https://github.com/libyal/libcthreads/
 BuildRequires:	autoconf >= 2.59
 BuildRequires:	automake >= 1.6
 BuildRequires:	gettext-tools >= 0.18.1
 BuildRequires:	libcerror-devel >= 20120425
-BuildRequires:	libcstring-devel >= 20120425
 BuildRequires:	libtool
 BuildRequires:	pkgconfig
-BuildRequires:	sed >= 4.0
 Requires:	libcerror >= 20120425
-Requires:	libcstring >= 20120425
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -34,7 +31,6 @@ Summary(pl.UTF-8):	Pliki nagłówkowe biblioteki libcthreads
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	libcerror-devel >= 20120425
-Requires:	libcstring-devel >= 20120425
 
 %description devel
 Header files for libcthreads library.
@@ -56,17 +52,16 @@ Statyczna biblioteka libcthreads.
 
 %prep
 %setup -q
-%patch0 -p1
 
 %build
 %{__gettextize}
-%{__sed} -i -e 's/ po\/Makefile.in//' configure.ac
 %{__libtoolize}
 %{__aclocal} -I m4
 %{__autoconf}
 %{__autoheader}
 %{__automake}
-%configure
+%configure \
+	--with-libcerror
 %{__make}
 
 %install
