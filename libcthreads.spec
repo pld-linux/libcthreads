@@ -3,19 +3,19 @@
 Summary:	Library to support cross-platform C threads functions
 Summary(pl.UTF-8):	Biblioteka wspierająca wieloplatformowe funkcje obsługi wątków w C
 Name:		libcthreads
-Version:	20220102
+Version:	20240102
 Release:	1
 License:	LGPL v3+
 Group:		Libraries
 #Source0Download: https://github.com/libyal/libcthreads/releases
 Source0:	https://github.com/libyal/libcthreads/releases/download/%{version}/%{name}-alpha-%{version}.tar.gz
-# Source0-md5:	a088e4a97e3103ccd3f605bf457fc844
+# Source0-md5:	c2039a820aeeaf9affcf38a5110e153a
 URL:		https://github.com/libyal/libcthreads/
-BuildRequires:	autoconf >= 2.59
+BuildRequires:	autoconf >= 2.71
 BuildRequires:	automake >= 1.6
-BuildRequires:	gettext-tools >= 0.18.1
+BuildRequires:	gettext-tools >= 0.21
 BuildRequires:	libcerror-devel >= %{libcerror_ver}
-BuildRequires:	libtool
+BuildRequires:	libtool >= 2:2
 BuildRequires:	pkgconfig
 Requires:	libcerror >= %{libcerror_ver}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
